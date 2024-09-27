@@ -7,7 +7,7 @@ pipeline {
             steps {
                 script {
                     echo 'Building the project...'
-                    sh 'npm install' 
+                    bat 'npm install'
                 }
             }
         }
@@ -17,7 +17,7 @@ pipeline {
             steps {
                 script {
                     echo 'Running tests...'
-                    sh 'npm test' 
+                    bat 'npm test'
                 }
             }
         }
@@ -27,7 +27,7 @@ pipeline {
             steps {
                 script {
                     echo 'Running code quality analysis...'
-                    sh 'npm run lint'
+                    bat 'npm run lint'
                 }
             }
         }
@@ -37,7 +37,7 @@ pipeline {
             steps {
                 script {
                     echo 'Deploying to staging...'
-                    sh 'docker-compose up -d'
+                    bat 'docker-compose up -d'
                 }
             }
         }
@@ -47,7 +47,7 @@ pipeline {
             steps {
                 script {
                     echo 'Deploying to production...'
-                    sh 'npm run deploy'
+                    bat 'npm run deploy'
                 }
             }
         }
@@ -57,7 +57,7 @@ pipeline {
             steps {
                 script {
                     echo 'Setting up monitoring...'
-                    sh './monitoring-setup.sh'
+                    bat './monitoring-setup.bat'
                 }
             }
         }
